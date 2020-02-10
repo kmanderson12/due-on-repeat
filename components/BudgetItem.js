@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Repeat } from "../components/icons";
 
+// TODO: Under 800px -> Wrap Title and Occurrence (flex-direction)
+
 const BudgetItem = props => {
   const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",

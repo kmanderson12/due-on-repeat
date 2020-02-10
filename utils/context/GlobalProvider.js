@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 
-// TODO: Global State for non-User-specific data
+// TODO: Research methods of data persistence - Next.js will
+// require unique method for localStorage
 
 let initialState = {
   name: "Jim Halpert",
@@ -31,6 +32,7 @@ const GlobalProvider = ({ children }) => {
           ...state,
           items: [...state.items, action.payload]
         };
+        localStorage.setItem("data", JSON.stringify(initialState));
         return initialState;
       case "CANCEL":
         return { ...initialState, disabled: true };
