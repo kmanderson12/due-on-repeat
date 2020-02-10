@@ -10,13 +10,13 @@ let initialState = {
     {
       type: `income`,
       title: `Jim's Check`,
-      occurrence: `Every month on the 15th`,
+      recurrence: `Every month on the 15th`,
       amount: `1550`
     },
     {
       type: `expense`,
       title: `Internet`,
-      occurrence: `Every month on the 13th`,
+      recurrence: `Every month on the 13th`,
       amount: `65`
     }
   ]

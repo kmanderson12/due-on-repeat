@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Repeat } from "../components/icons";
 
-// TODO: Under 800px -> Wrap Title and Occurrence (flex-direction)
+// TODO: Under 800px -> Wrap Title and Recurrence (flex-direction)
 
 const BudgetItem = props => {
   const formatted = new Intl.NumberFormat("en-US", {
@@ -14,7 +14,7 @@ const BudgetItem = props => {
       <ItemTitle>{props.title}</ItemTitle>
       <ItemOccurrence>
         <Repeat />
-        {props.occurrence}
+        {props.recurrence}
       </ItemOccurrence>
       <ItemAmount type={props.type}>{amount}</ItemAmount>
     </BudgetCard>

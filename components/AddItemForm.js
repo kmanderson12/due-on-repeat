@@ -17,7 +17,7 @@ const AddItemForm = props => {
     type: "",
     title: "",
     amount: "",
-    occurrence: ""
+    recurrence: ""
   });
 
   const handleChange = e => {
@@ -27,7 +27,7 @@ const AddItemForm = props => {
       [name]: value
     });
   };
-  const { type, title, amount, occurrence } = newItem;
+  const { type, title, amount, recurrence } = newItem;
   return (
     <Form onSubmit={e => handleSubmit(e)}>
       <FormTitle>Add New Budget Item</FormTitle>
@@ -67,13 +67,13 @@ const AddItemForm = props => {
         value={amount}
         required
       />
-      <label>Occurrence</label>
+      <label>Recurrence</label>
       <input
         type="text"
-        name="occurrence"
+        name="recurrence"
         placeholder="Every month on the 15th"
         onChange={handleChange}
-        value={occurrence}
+        value={recurrence}
         required
       />
       <button onClick={props.cancel}>Cancel</button>
