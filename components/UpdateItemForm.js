@@ -13,6 +13,13 @@ const UpdateItemForm = props => {
     dispatch({ type: "UPDATE_ITEM", payload: item });
     props.cancel();
   };
+  const handleDelete = e => {
+    e.preventDefault();
+    const answer = window.confirm(
+      "You sure about that? \nPress OK to delete. Cancel to go back."
+    );
+    answer ? dispatch({ type: "DELETE_ITEM", payload: item }) : null;
+  };
   const [item, setItem] = useState({
     id: props.id,
     type: props.type,
@@ -30,7 +37,7 @@ const UpdateItemForm = props => {
   };
   const { type, title, amount, recurrence } = item;
   return (
-    <Form onSubmit={e => handleSubmit(e)}>
+    <Form onSubmit={handleSubmit}>
       <FormTitle>Edit Budget Item</FormTitle>
       <label>Type</label>
       <select
@@ -79,6 +86,7 @@ const UpdateItemForm = props => {
       />
       <button onClick={props.cancel}>Cancel</button>
       <button type="submit">Save Changes</button>
+      <button onClick={handleDelete}>Delete Item</button>
     </Form>
   );
 };

@@ -31,7 +31,7 @@ const AddItemForm = props => {
   };
   const { type, title, amount, recurrence } = newItem;
   return (
-    <Form onSubmit={e => handleSubmit(e)}>
+    <Form onSubmit={handleSubmit}>
       <FormTitle>Add New Budget Item</FormTitle>
       <label>Type</label>
       <select
