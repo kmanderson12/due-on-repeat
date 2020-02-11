@@ -34,11 +34,13 @@ const BudgetItem = props => {
         </Modal>
       ) : null}
       <BudgetCard onClick={toggleModal}>
-        <ItemTitle>{props.title}</ItemTitle>
-        <ItemOccurrence>
-          <Repeat />
-          {props.recurrence}
-        </ItemOccurrence>
+        <FlexWrapper>
+          <ItemTitle>{props.title}</ItemTitle>
+          <ItemOccurrence>
+            <Repeat />
+            {props.recurrence}
+          </ItemOccurrence>
+        </FlexWrapper>
         <ItemAmount type={props.type}>{amount}</ItemAmount>
       </BudgetCard>
     </>
@@ -67,21 +69,31 @@ const BudgetCard = styled.div`
 const ItemTitle = styled.h4`
   font-weight: 400;
   color: ${props => props.theme.colors.gray700};
-  width: 30%;
+  min-width: 200px;
 `;
 
 const ItemOccurrence = styled.p`
   font-weight: 300;
-  width: 30%;
+  min-width: 300px;
   color: ${props => props.theme.colors.gray600};
   display: flex;
   justify-content: center;
   align-items: center;
   > * {
-    margin: 0 0.45rem;
+    margin-right: 0 0.45rem;
   }
   > svg {
     max-height: 14px;
+  }
+  @media screen and (max-width: 800px) {
+    font-size: 1.6rem;
+    justify-content: flex-start;
+    > svg {
+      max-height: 12px;
+    }
+    > * {
+      margin: 0 0.2rem 0 0;
+    }
   }
 `;
 
@@ -93,4 +105,20 @@ const ItemAmount = styled.p`
     props.type === "income"
       ? props.theme.colors.green200
       : props.theme.colors.red};
+  @media screen and (max-width: 800px) {
+    width: 20%;
+    font-size: 1.8rem;
+  }
+`;
+
+const FlexWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+  }
 `;

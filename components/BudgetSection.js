@@ -81,9 +81,13 @@ const InsetContainer = styled.div`
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06);
   border-radius: 5px;
   max-width: 800px;
-  height: 70vh;
+  min-height: 70vh;
+  /* overflow-y: scroll; */
   margin: 0 auto;
   padding: 2rem;
+  @media screen and (max-width: 800px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const Divider = styled.div`
