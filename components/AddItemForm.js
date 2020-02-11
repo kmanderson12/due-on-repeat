@@ -3,7 +3,7 @@ import { store } from "../utils/context/GlobalProvider";
 import styled from "styled-components";
 
 const AddItemForm = props => {
-  const { dispatch } = useContext(store);
+  const { dispatch, state } = useContext(store);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,7 +13,9 @@ const AddItemForm = props => {
     dispatch({ type: "ADD_ITEM", payload: newItem });
     props.cancel();
   };
+  const newId = state.items.length + 1;
   const [newItem, setNewItem] = useState({
+    id: newId,
     type: "",
     title: "",
     amount: "",
