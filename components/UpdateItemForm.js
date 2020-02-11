@@ -4,6 +4,13 @@ import styled from "styled-components";
 
 const UpdateItemForm = props => {
   const { dispatch } = useContext(store);
+  const [item, setItem] = useState({
+    id: props.id,
+    type: props.type,
+    title: props.title,
+    amount: props.amount,
+    recurrence: props.recurrence
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,14 +27,10 @@ const UpdateItemForm = props => {
     );
     answer ? dispatch({ type: "DELETE_ITEM", payload: item }) : null;
   };
-  const [item, setItem] = useState({
-    id: props.id,
-    type: props.type,
-    title: props.title,
-    amount: props.amount,
-    recurrence: props.recurrence
-  });
-
+  const handleCancel = e => {
+    e.preventDefault();
+    props.cancel();
+  };
   const handleChange = e => {
     const { name, value } = e.target;
     setItem({
@@ -84,9 +87,11 @@ const UpdateItemForm = props => {
         value={recurrence}
         required
       />
-      <button onClick={props.cancel}>Cancel</button>
+      <button onClick={handleCancel}>Cancel</button>
       <button type="submit">Save Changes</button>
-      <button onClick={handleDelete}>Delete Item</button>
+      <button className="delete" onClick={handleDelete}>
+        Delete Item
+      </button>
     </Form>
   );
 };
@@ -106,5 +111,9 @@ const Form = styled.form`
   input {
     display: block;
     margin: 1rem 0;
+  }
+  .delete {
+    background: ${props => props.theme.colors.red};
+    color: white;
   }
 `;

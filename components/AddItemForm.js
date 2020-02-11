@@ -4,15 +4,6 @@ import styled from "styled-components";
 
 const AddItemForm = props => {
   const { dispatch, state } = useContext(store);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (newItem.type === "") {
-      return alert("Please set a type");
-    }
-    dispatch({ type: "ADD_ITEM", payload: newItem });
-    props.cancel();
-  };
   const newId = state.items.length + 1;
   const [newItem, setNewItem] = useState({
     id: newId,
@@ -22,6 +13,18 @@ const AddItemForm = props => {
     recurrence: ""
   });
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (newItem.type === "") {
+      return alert("Please set a type");
+    }
+    dispatch({ type: "ADD_ITEM", payload: newItem });
+    props.cancel();
+  };
+  const handleCancel = e => {
+    e.preventDefault();
+    props.cancel();
+  };
   const handleChange = e => {
     const { name, value } = e.target;
     setNewItem({
@@ -78,7 +81,7 @@ const AddItemForm = props => {
         value={recurrence}
         required
       />
-      <button onClick={props.cancel}>Cancel</button>
+      <button onClick={handleCancel}>Cancel</button>
       <button type="submit">Add New Item</button>
     </Form>
   );

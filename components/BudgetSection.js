@@ -81,7 +81,7 @@ const InsetContainer = styled.div`
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06);
   border-radius: 5px;
   max-width: 800px;
-  height: 80vh;
+  height: 70vh;
   margin: 0 auto;
   padding: 2rem;
 `;

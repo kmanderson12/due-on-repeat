@@ -8,7 +8,10 @@ import UpdateItemForm from "../components/UpdateItemForm";
 
 const BudgetItem = props => {
   const [toggle, setToggle] = useState(false);
-  const toggleModal = () => {
+  const toggleModal = e => {
+    if (e) {
+      e.preventDefault();
+    }
     setToggle(!toggle);
   };
   const formatted = new Intl.NumberFormat("en-US", {
