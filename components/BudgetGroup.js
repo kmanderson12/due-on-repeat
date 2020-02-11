@@ -12,7 +12,8 @@ const BudgetGroup = props => {
             type={i.type}
             amount={i.amount}
             recurrence={i.recurrence}
-            key={index}
+            id={i.id}
+            key={i.id}
           />
         ))
       ) : (

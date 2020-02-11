@@ -4,6 +4,7 @@ import styled from "styled-components";
 import BudgetGroup from "../components/BudgetGroup";
 import { Plus } from "../components/icons";
 import Modal from "../components/Modal";
+import AddItemForm from "../components/AddItemForm";
 
 const BudgetSection = () => {
   const [toggle, setToggle] = useState(false);
@@ -15,7 +16,11 @@ const BudgetSection = () => {
   const expenses = state.items.filter(item => item.type === "expense");
   return (
     <>
-      {toggle ? <Modal closeModal={toggleModal} /> : null}
+      {toggle ? (
+        <Modal>
+          <AddItemForm cancel={toggleModal} />
+        </Modal>
+      ) : null}
       <BudgetContainer>
         <BudgetHeader>
           <BudgetTitle>{state.name}'s Budget</BudgetTitle>

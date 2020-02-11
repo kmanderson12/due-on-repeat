@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import AddItemForm from "../components/AddItemForm";
 
 const Modal = props => {
   return (
     <ModalBackground>
-      <ModalCard>
-        <AddItemForm cancel={props.closeModal} />
-      </ModalCard>
+      <ModalCard>{props.children}</ModalCard>
     </ModalBackground>
   );
 };

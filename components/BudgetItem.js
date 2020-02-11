@@ -1,23 +1,44 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { Repeat } from "../components/icons";
+import Modal from "../components/Modal";
+import UpdateItemForm from "../components/UpdateItemForm";
 
 // TODO: Under 800px -> Wrap Title and Recurrence (flex-direction)
 
 const BudgetItem = props => {
+  const [toggle, setToggle] = useState(false);
+  const toggleModal = () => {
+    setToggle(!toggle);
+  };
   const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD"
   }).format(props.amount);
   const amount = props.type === "income" ? `+${formatted}` : `-${formatted}`;
   return (
-    <BudgetCard>
-      <ItemTitle>{props.title}</ItemTitle>
-      <ItemOccurrence>
-        <Repeat />
-        {props.recurrence}
-      </ItemOccurrence>
-      <ItemAmount type={props.type}>{amount}</ItemAmount>
-    </BudgetCard>
+    <>
+      {toggle ? (
+        <Modal>
+          <UpdateItemForm
+            cancel={toggleModal}
+            id={props.id}
+            type={props.type}
+            title={props.title}
+            recurrence={props.recurrence}
+            amount={props.amount}
+          />
+        </Modal>
+      ) : null}
+      <BudgetCard onClick={toggleModal}>
+        <ItemTitle>{props.title}</ItemTitle>
+        <ItemOccurrence>
+          <Repeat />
+          {props.recurrence}
+        </ItemOccurrence>
+        <ItemAmount type={props.type}>{amount}</ItemAmount>
+      </BudgetCard>
+    </>
   );
 };
 
@@ -25,14 +46,19 @@ export default BudgetItem;
 
 const BudgetCard = styled.div`
   background: #edf2f7;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: ${props => props.theme.shadows.bs1};
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  margin: 0.5rem;
+  margin: 0.75rem;
   font-size: 1.7rem;
+  transition: all 0.3s;
+  :hover {
+    cursor: pointer;
+    box-shadow: ${props => props.theme.shadows.bs2};
+  }
 `;
 
 const ItemTitle = styled.h4`
