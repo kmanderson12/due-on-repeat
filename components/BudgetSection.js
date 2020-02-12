@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
-import { store } from "../utils/context/GlobalProvider";
-import styled from "styled-components";
-import BudgetGroup from "../components/BudgetGroup";
-import { Plus } from "../components/icons";
-import Modal from "../components/Modal";
-import AddItemForm from "../components/AddItemForm";
+import { useState, useContext } from 'react';
+import { store } from '../utils/context/GlobalProvider';
+import styled from 'styled-components';
+import BudgetGroup from '../components/BudgetGroup';
+import { Plus } from '../components/icons';
+import Modal from '../components/Modal';
+import AddItemForm from '../components/AddItemForm';
 
 const BudgetSection = () => {
   const [toggle, setToggle] = useState(false);
@@ -12,8 +12,8 @@ const BudgetSection = () => {
     setToggle(!toggle);
   };
   const { state } = useContext(store);
-  const income = state.items.filter(item => item.type === "income");
-  const expenses = state.items.filter(item => item.type === "expense");
+  const income = state.items.filter(item => item.type === 'income');
+  const expenses = state.items.filter(item => item.type === 'expense');
   return (
     <>
       {toggle ? (
@@ -63,7 +63,7 @@ const AddButton = styled.button`
   border-radius: 5px;
   background: ${props => props.theme.colors.gray700};
   color: white;
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-weight: 400;
   padding: 1rem;
   font-size: 1.4rem;

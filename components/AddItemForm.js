@@ -1,24 +1,24 @@
-import { useState, useContext } from "react";
-import { store } from "../utils/context/GlobalProvider";
-import styled from "styled-components";
+import { useState, useContext } from 'react';
+import { store } from '../utils/context/GlobalProvider';
+import styled from 'styled-components';
 
 const AddItemForm = props => {
   const { dispatch, state } = useContext(store);
   const newId = state.items.length + 1;
   const [newItem, setNewItem] = useState({
     id: newId,
-    type: "",
-    title: "",
-    amount: "",
-    recurrence: ""
+    type: '',
+    title: '',
+    amount: '',
+    recurrence: ''
   });
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (newItem.type === "") {
-      return alert("Please set a type");
+    if (newItem.type === '') {
+      return alert('Please set a type');
     }
-    dispatch({ type: "ADD_ITEM", payload: newItem });
+    dispatch({ type: 'ADD_ITEM', payload: newItem });
     props.cancel();
   };
   const handleCancel = e => {

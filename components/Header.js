@@ -1,6 +1,6 @@
-import Link from "next/link";
-import styled from "styled-components";
-import { RepeatBlock } from "../components/icons";
+import Link from 'next/link';
+import styled from 'styled-components';
+import { RepeatBlock } from '../components/icons';
 
 const Header = () => (
   <StyledHeader>

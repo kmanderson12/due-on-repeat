@@ -1,10 +1,8 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { Repeat } from "../components/icons";
-import Modal from "../components/Modal";
-import UpdateItemForm from "../components/UpdateItemForm";
-
-// TODO: Under 800px -> Wrap Title and Recurrence (flex-direction)
+import { useState } from 'react';
+import styled from 'styled-components';
+import { Repeat } from '../components/icons';
+import Modal from '../components/Modal';
+import UpdateItemForm from '../components/UpdateItemForm';
 
 const BudgetItem = props => {
   const [toggle, setToggle] = useState(false);
@@ -14,11 +12,11 @@ const BudgetItem = props => {
     }
     setToggle(!toggle);
   };
-  const formatted = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD"
+  const formatted = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
   }).format(props.amount);
-  const amount = props.type === "income" ? `+${formatted}` : `-${formatted}`;
+  const amount = props.type === 'income' ? `+${formatted}` : `-${formatted}`;
   return (
     <>
       {toggle ? (
@@ -117,7 +115,7 @@ const ItemAmount = styled.p`
   width: 50%;
   font-weight: 400;
   color: ${props =>
-    props.type === "income"
+    props.type === 'income'
       ? props.theme.colors.green200
       : props.theme.colors.red};
   @media screen and (max-width: 800px) {

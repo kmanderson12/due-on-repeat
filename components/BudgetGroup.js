@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import BudgetItem from "../components/BudgetItem";
+import styled from 'styled-components';
+import BudgetItem from '../components/BudgetItem';
 
 const BudgetGroup = props => {
   return (

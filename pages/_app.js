@@ -1,7 +1,7 @@
-import App from "next/app";
-import React from "react";
-import Page from "../components/Page";
-import { GlobalProvider } from "../utils/context/GlobalProvider";
+import App from 'next/app';
+import React from 'react';
+import Page from '../components/Page';
+import { GlobalProvider } from '../utils/context/GlobalProvider';
 
 export default class MyApp extends App {
   render() {

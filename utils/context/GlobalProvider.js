@@ -1,11 +1,11 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer } from 'react';
 
 // TODO: Research methods of data persistence - Next.js will
 // require unique method for localStorage
 
 let initialState = {
-  name: "Nacho Libre",
-  email: "nacho@test.com",
+  name: 'Nacho Libre',
+  email: 'nacho@test.com',
   items: [
     {
       id: `1`,
@@ -59,33 +59,33 @@ function removeItem(array, action) {
 const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
-      case "ADD_ITEM":
+      case 'ADD_ITEM':
         initialState = {
           ...state,
           items: [...state.items, action.payload]
         };
-        localStorage.setItem("data", JSON.stringify(initialState));
+        localStorage.setItem('data', JSON.stringify(initialState));
         return initialState;
-      case "UPDATE_ITEM":
+      case 'UPDATE_ITEM':
         const updatedItems = updateObjectInArray(initialState.items, action);
         initialState = {
           ...state,
           items: updatedItems
         };
-        localStorage.setItem("data", JSON.stringify(initialState));
+        localStorage.setItem('data', JSON.stringify(initialState));
         return initialState;
-      case "DELETE_ITEM":
+      case 'DELETE_ITEM':
         initialState = {
           ...state,
           items: removeItem(initialState.items, action)
         };
-        localStorage.setItem("data", JSON.stringify(initialState));
+        localStorage.setItem('data', JSON.stringify(initialState));
         return initialState;
-      case "CANCEL":
+      case 'CANCEL':
         return { ...initialState, disabled: true };
-      case "HANDLE_CHANGE":
+      case 'HANDLE_CHANGE':
         return { ...state, [action.name]: action.value };
-      case "SUBMIT":
+      case 'SUBMIT':
         console.log(action.payload);
         initialState = { ...state };
         return initialState;

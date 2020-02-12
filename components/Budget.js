@@ -1,4 +1,4 @@
-import BudgetSection from "../components/BudgetSection";
+import BudgetSection from '../components/BudgetSection';
 
 const Budget = () => {
   return <BudgetSection />;

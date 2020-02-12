@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
-import { store } from "../utils/context/GlobalProvider";
-import styled from "styled-components";
+import { useState, useContext } from 'react';
+import { store } from '../utils/context/GlobalProvider';
+import styled from 'styled-components';
 
 const UpdateItemForm = props => {
   const { dispatch } = useContext(store);
@@ -14,18 +14,18 @@ const UpdateItemForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (item.type === "") {
-      return alert("Please set a type");
+    if (item.type === '') {
+      return alert('Please set a type');
     }
-    dispatch({ type: "UPDATE_ITEM", payload: item });
+    dispatch({ type: 'UPDATE_ITEM', payload: item });
     props.cancel();
   };
   const handleDelete = e => {
     e.preventDefault();
     const answer = window.confirm(
-      "You sure about that? \nPress OK to delete. Cancel to go back."
+      'You sure about that? \nPress OK to delete. Cancel to go back.'
     );
-    answer ? dispatch({ type: "DELETE_ITEM", payload: item }) : null;
+    answer ? dispatch({ type: 'DELETE_ITEM', payload: item }) : null;
   };
   const handleCancel = e => {
     e.preventDefault();
