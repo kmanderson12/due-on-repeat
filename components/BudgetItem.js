@@ -64,50 +64,8 @@ const BudgetCard = styled.div`
     cursor: pointer;
     box-shadow: ${props => props.theme.shadows.bs2};
   }
-`;
-
-const ItemTitle = styled.h4`
-  font-weight: 400;
-  color: ${props => props.theme.colors.gray700};
-  min-width: 200px;
-`;
-
-const ItemOccurrence = styled.p`
-  font-weight: 300;
-  min-width: 300px;
-  color: ${props => props.theme.colors.gray600};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > * {
-    margin-right: 0 0.45rem;
-  }
-  > svg {
-    max-height: 14px;
-  }
   @media screen and (max-width: 800px) {
-    font-size: 1.6rem;
-    justify-content: flex-start;
-    > svg {
-      max-height: 12px;
-    }
-    > * {
-      margin: 0 0.2rem 0 0;
-    }
-  }
-`;
-
-const ItemAmount = styled.p`
-  text-align: right;
-  width: 30%;
-  font-weight: 400;
-  color: ${props =>
-    props.type === "income"
-      ? props.theme.colors.green200
-      : props.theme.colors.red};
-  @media screen and (max-width: 800px) {
-    width: 20%;
-    font-size: 1.8rem;
+    padding: 1rem;
   }
 `;
 
@@ -115,10 +73,54 @@ const FlexWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 100%;
   @media screen and (max-width: 800px) {
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
+  }
+`;
+
+const ItemTitle = styled.h4`
+  font-weight: 400;
+  color: ${props => props.theme.colors.gray700};
+  min-width: 50%;
+  @media screen and (max-width: 800px) {
+    margin-bottom: 0.2rem;
+  }
+`;
+
+const ItemOccurrence = styled.p`
+  font-weight: 300;
+  min-width: 50%;
+  color: ${props => props.theme.colors.gray600};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > svg {
+    margin-right: 0.45rem;
+    max-height: 14px;
+  }
+  @media screen and (max-width: 800px) {
+    font-size: 1.4rem;
+    justify-content: flex-start;
+    margin-left: -2px;
+    > svg {
+      margin-right: 0.2rem;
+      max-height: 12px;
+    }
+  }
+`;
+
+const ItemAmount = styled.p`
+  text-align: right;
+  width: 50%;
+  font-weight: 400;
+  color: ${props =>
+    props.type === "income"
+      ? props.theme.colors.green200
+      : props.theme.colors.red};
+  @media screen and (max-width: 800px) {
+    font-size: 1.8rem;
   }
 `;

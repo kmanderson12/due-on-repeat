@@ -24,7 +24,6 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
   margin: 0 auto;
   h1 {
     font-size: 3rem;
