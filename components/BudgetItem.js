@@ -86,7 +86,7 @@ const ItemTitle = styled.h4`
   color: ${props => props.theme.colors.gray700};
   min-width: 50%;
   @media screen and (max-width: 800px) {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
   }
 `;
 
