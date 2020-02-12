@@ -81,7 +81,9 @@ const AddItemForm = props => {
         value={recurrence}
         required
       />
-      <button onClick={handleCancel}>Cancel</button>
+      <button type="button" onClick={handleCancel}>
+        Cancel
+      </button>
       <button type="submit">Add New Item</button>
     </Form>
   );

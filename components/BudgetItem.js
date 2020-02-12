@@ -77,7 +77,7 @@ const FlexWrapper = styled.div`
   @media screen and (max-width: 800px) {
     flex-direction: column;
     align-items: flex-start;
-    width: 50%;
+    width: auto;
   }
 `;
 
@@ -122,5 +122,6 @@ const ItemAmount = styled.p`
       : props.theme.colors.red};
   @media screen and (max-width: 800px) {
     font-size: 1.8rem;
+    width: auto;
   }
 `;

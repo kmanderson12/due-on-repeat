@@ -87,9 +87,11 @@ const UpdateItemForm = props => {
         value={recurrence}
         required
       />
-      <button onClick={handleCancel}>Cancel</button>
+      <button type="button" onClick={handleCancel}>
+        Cancel
+      </button>
       <button type="submit">Save Changes</button>
-      <button className="delete" onClick={handleDelete}>
+      <button type="button" className="delete" onClick={handleDelete}>
         Delete Item
       </button>
     </Form>
