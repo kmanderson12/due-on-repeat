@@ -5,6 +5,7 @@ import BudgetGroup from '../components/BudgetGroup';
 import { Plus } from '../components/icons';
 import Modal from '../components/Modal';
 import AddItemForm from '../components/AddItemForm';
+import AddButton from '../components/styles/AddButton';
 
 const BudgetSection = () => {
   const [toggle, setToggle] = useState(false);
@@ -56,24 +57,6 @@ const BudgetHeader = styled.div`
 const BudgetTitle = styled.h2`
   font-weight: 400;
   color: ${props => props.theme.colors.gray700};
-`;
-
-const AddButton = styled.button`
-  border: none;
-  border-radius: 5px;
-  background: ${props => props.theme.colors.gray700};
-  color: white;
-  font-family: 'Rubik';
-  font-weight: 400;
-  padding: 1rem;
-  font-size: 1.4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  > * {
-    margin: 0 0.4rem;
-  }
 `;
 
 const InsetContainer = styled.div`

@@ -8,28 +8,28 @@ let initialState = {
   email: 'nacho@test.com',
   items: [
     {
-      id: `1`,
+      id: 1,
       type: `income`,
       title: `Nacho's Check`,
       recurrence: `Every 2 weeks on Fridays`,
       amount: `550`
     },
     {
-      id: `2`,
+      id: 2,
       type: `expense`,
       title: `Gym Membership`,
       recurrence: `Every month on the 1st`,
       amount: `20`
     },
     {
-      id: `3`,
+      id: 3,
       type: `expense`,
       title: `Stretchy Pants`,
       recurrence: `Every month on the 1st`,
       amount: `15`
     },
     {
-      id: `4`,
+      id: 4,
       type: `expense`,
       title: `Tithe`,
       recurrence: `Every month on the 20th`,
