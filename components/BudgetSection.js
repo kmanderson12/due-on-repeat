@@ -25,10 +25,10 @@ const BudgetSection = () => {
       <BudgetContainer>
         <BudgetHeader>
           <BudgetTitle>{state.name}'s Budget</BudgetTitle>
-          <AddButton onClick={toggleModal}>
+          <MainAddButton onClick={toggleModal}>
             <Plus />
             Add New Item
-          </AddButton>
+          </MainAddButton>
         </BudgetHeader>
         <InsetContainer>
           <BudgetGroup type="Income" items={income} />
@@ -52,6 +52,10 @@ const BudgetHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const BudgetTitle = styled.h2`
@@ -79,4 +83,12 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   margin: 2rem 0;
+`;
+
+const MainAddButton = styled(AddButton)`
+  @media (max-width: 500px) {
+    margin: 1rem 2rem;
+    justify-content: center;
+    width: 100%;
+  }
 `;

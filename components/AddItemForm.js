@@ -5,6 +5,15 @@ import ItemTypeButtonGroup from '../components/styles/ItemTypeButtonGroup';
 import AddButton from '../components/styles/AddButton';
 import { Plus } from '../components/icons';
 
+//TODO: Change form items to flexbox instead of grid
+//TODO: Move Day of the Month to another file
+//TODO: Create Recurrence button group
+//TODO: Create Weekly section
+//TODO: Create Bi-Weekly section
+//TODO: Wire up state/context with new inputs
+//TODO: Fix mobile view (larger buttons, text)
+//TODO: Consider adding preview of new item within modal
+
 const AddItemForm = props => {
   const { dispatch, state } = useContext(store);
   const newId = state.items.length + 1;
