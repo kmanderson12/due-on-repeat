@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Label,
   CustomInput,
@@ -8,21 +9,47 @@ import {
 } from '../components/styles/FormStyles';
 
 const DayOfTheMonth = props => {
+  const customDay = isNaN(props.dayOfMonth) ? '' : props.dayOfMonth;
   return (
     <>
       <Label>Day of the Month</Label>
       <RadioContainer>
-        <RadioInput type="radio" id="first" name="day" value="first" />
+        <RadioInput
+          type="radio"
+          id="first"
+          name="dayOfMonth"
+          value="first"
+          onChange={props.handleChange}
+        />
         <RadioLabel htmlFor="first">1st of the month</RadioLabel>
       </RadioContainer>
       <RadioContainer>
-        <RadioInput type="radio" id="last" name="day" value="last" />
+        <RadioInput
+          type="radio"
+          id="last"
+          name="dayOfMonth"
+          value="last"
+          onChange={props.handleChange}
+        />
         <RadioLabel htmlFor="last">Last day of the month</RadioLabel>
       </RadioContainer>
       <RadioContainer>
-        <RadioInput type="radio" id="custom" name="day" value="custom" />
+        <RadioInput
+          type="radio"
+          id="custom"
+          name="dayOfMonth"
+          value={customDay}
+          onChange={props.handleChange}
+        />
         <RadioLabel htmlFor="custom">Custom:</RadioLabel>
-        <CustomInput type="text" name="customDay" placeholder="15" />
+        <CustomInput
+          type="number"
+          min="1"
+          max="31"
+          name="dayOfMonth"
+          placeholder="15"
+          onChange={props.handleChange}
+        />
         {/* <CustomLabel htmlFor="customDay">Enter a day of the month</CustomLabel> */}
       </RadioContainer>
     </>

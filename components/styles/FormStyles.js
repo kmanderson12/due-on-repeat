@@ -47,7 +47,7 @@ export const RadioLabel = styled.label`
 
 export const CustomInput = styled.input`
   background: #ffffff;
-  max-width: 30px;
+  max-width: 50px;
   margin: 0 0.5rem;
   text-align: center;
   border: 1px solid #edf2f7;

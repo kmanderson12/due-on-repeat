@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Repeat } from '../components/icons';
+import ordinal from 'ordinal';
 import Modal from '../components/Modal';
 import UpdateItemForm from '../components/UpdateItemForm';
 
@@ -12,11 +13,40 @@ const BudgetItem = props => {
     }
     setToggle(!toggle);
   };
-  const formatted = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-  }).format(props.amount);
-  const amount = props.type === 'income' ? `+${formatted}` : `-${formatted}`;
+  const formatMoney = money =>
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(money);
+  const amount =
+    props.type === 'income'
+      ? `+${formatMoney(props.amount)}`
+      : `-${formatMoney(props.amount)}`;
+  const convertDay = dayOfMonth => {
+    switch (dayOfMonth) {
+      case 'first':
+        return '1st';
+      case 'last':
+        return 'last day of the month';
+      default:
+        return ordinal(parseInt(dayOfMonth));
+    }
+  };
+  const formatRecurrence = (recurrence, dayOfWeek, dayOfMonth) => {
+    switch (recurrence) {
+      case 'monthly':
+        return `Every month on the ${convertDay(dayOfMonth)}`;
+      case 'bi-weekly':
+        return `Every 2 weeks on ${dayOfWeek}s`;
+      default:
+        return `Every week on ${dayOfWeek}`;
+    }
+  };
+  const itemRecurrence = formatRecurrence(
+    props.recurrence,
+    props.dayOfWeek,
+    props.dayOfMonth
+  );
   return (
     <>
       {toggle ? (
@@ -36,7 +66,7 @@ const BudgetItem = props => {
           <ItemTitle>{props.title}</ItemTitle>
           <ItemOccurrence>
             <Repeat />
-            {props.recurrence}
+            {itemRecurrence}
           </ItemOccurrence>
         </FlexWrapper>
         <ItemAmount type={props.type}>{amount}</ItemAmount>

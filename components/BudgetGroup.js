@@ -14,6 +14,8 @@ const BudgetGroup = props => {
             recurrence={i.recurrence}
             id={i.id}
             key={i.id}
+            dayOfMonth={i.dayOfMonth}
+            dayOfWeek={i.dayOfWeek}
           />
         ))
       ) : (

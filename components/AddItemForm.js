@@ -39,7 +39,9 @@ const AddItemForm = props => {
     type: 'income',
     title: '',
     amount: '',
-    recurrence: 'monthly'
+    recurrence: 'monthly',
+    dayOfWeek: '',
+    dayOfMonth: ''
   });
 
   const handleSubmit = e => {
@@ -93,18 +95,14 @@ const AddItemForm = props => {
         </FormItem>
         <FormItem>
           <Label>Recurrence</Label>
-          {/* <TextInput
-            type="text"
-            name="recurrence"
-            placeholder="Every month on the 15th"
-            onChange={handleChange}
-            value={recurrence}
-            required
-          /> */}
           <RecurrenceGroup recurrence={recurrence} onClick={handleChange} />
         </FormItem>
         <FormItem>
-          {recurrence === 'monthly' ? <DayOfTheMonth /> : <DayOfTheWeek />}
+          {recurrence === 'monthly' ? (
+            <DayOfTheMonth handleChange={handleChange} />
+          ) : (
+            <DayOfTheWeek />
+          )}
         </FormItem>
       </FlexContainer>
       <ButtonContainer>

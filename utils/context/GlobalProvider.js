@@ -11,29 +11,37 @@ let initialState = {
       id: 1,
       type: `income`,
       title: `Nacho's Check`,
-      recurrence: `Every 2 weeks on Fridays`,
-      amount: `550`
+      recurrence: `bi-weekly`,
+      amount: `550`,
+      dayOfMonth: ``,
+      dayOfWeek: `Friday`
     },
     {
       id: 2,
       type: `expense`,
       title: `Gym Membership`,
-      recurrence: `Every month on the 1st`,
-      amount: `20`
+      recurrence: `monthly`,
+      amount: `20`,
+      dayOfMonth: `first`,
+      dayOfWeek: ``
     },
     {
       id: 3,
       type: `expense`,
       title: `Stretchy Pants`,
-      recurrence: `Every month on the 1st`,
-      amount: `15`
+      recurrence: `monthly`,
+      amount: `15`,
+      dayOfMonth: `first`,
+      dayOfWeek: ``
     },
     {
       id: 4,
       type: `expense`,
-      title: `Tithe`,
-      recurrence: `Every month on the 20th`,
-      amount: `100`
+      title: `Donation for the Orphans`,
+      recurrence: `monthly`,
+      amount: `100`,
+      dayOfMonth: 20,
+      dayOfWeek: ``
     }
   ]
 };
