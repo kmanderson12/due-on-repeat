@@ -225,8 +225,10 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: auto auto 1rem auto;
-  max-width: 225px;
   justify-self: flex-end;
+  > * {
+    margin: 0 0.5rem;
+  }
 `;
 
 const GridContainer = styled.div`
