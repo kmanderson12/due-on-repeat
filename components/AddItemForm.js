@@ -63,7 +63,7 @@ const AddItemForm = props => {
       [name]: value
     });
   };
-  const { type, title, amount, recurrence } = newItem;
+  const { type, title, amount, recurrence, dayOfWeek, dayOfMonth } = newItem;
   return (
     <Form onSubmit={handleSubmit}>
       <FormTitle>Add New Budget Item</FormTitle>
@@ -101,7 +101,7 @@ const AddItemForm = props => {
           {recurrence === 'monthly' ? (
             <DayOfTheMonth handleChange={handleChange} />
           ) : (
-            <DayOfTheWeek />
+            <DayOfTheWeek handleChange={handleChange} dayOfWeek={dayOfWeek} />
           )}
         </FormItem>
       </FlexContainer>
