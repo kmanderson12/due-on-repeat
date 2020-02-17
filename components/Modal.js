@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const Modal = props => {
   return (
     <ModalBackground>
+      <OverflowHidden />
       <ModalCard>{props.children}</ModalCard>
     </ModalBackground>
   );
@@ -12,14 +13,16 @@ export default Modal;
 
 const ModalBackground = styled.div`
   position: fixed;
+  overflow: auto;
+  overflow-y: scroll;
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  display: flex;
+  height: 100%;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   z-index: 5;
 `;
 const ModalCard = styled.div`
@@ -34,4 +37,15 @@ const ModalCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    height: 100%;
+    border-radius: 0px;
+    overflow-y: scroll;
+  }
+`;
+
+const OverflowHidden = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
 `;

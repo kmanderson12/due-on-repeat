@@ -7,7 +7,7 @@ export const Form = styled.form`
   color: ${props => props.theme.colors.gray700};
   display: flex;
   flex-direction: column;
-  RadioLabel,
+  label,
   input {
     display: block;
   }

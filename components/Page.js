@@ -46,6 +46,12 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-size: 10px;
         font-family: "Rubik";
+        @media screen and (max-width: 500px) {
+          font-size: 12px;
+        }
+        @media screen and (max-width: 375px) {
+          font-size: 10px;
+        }
     }
     *, *:before, *:after {
         box-sizing: inherit;
