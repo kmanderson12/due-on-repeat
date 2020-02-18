@@ -166,9 +166,10 @@ const FormItemRecurrence = styled(FormItem)`
 const PreviewContainer = styled.div`
   width: 100%;
   margin: 1rem 0;
-  padding: 1rem 0;
+  padding: 1rem 0.25rem;
   border-radius: 5px;
-  box-shadow: ${props => props.theme.shadows.bs1};
+  box-shadow: ${props => props.theme.shadows.inset};
+  background: ${props => props.theme.colors.gray100};
 `;
 
 const PreviewTitle = styled.h4`
