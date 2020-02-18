@@ -35,8 +35,8 @@ const AddItemForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (newItem.type === '') {
-      return alert('Please set a type');
+    if (newItem.dayOfMonth === '') {
+      return alert('Please select a day of the month.');
     }
     dispatch({ type: 'ADD_ITEM', payload: newItem });
     props.cancel();

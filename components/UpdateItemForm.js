@@ -32,8 +32,8 @@ const UpdateItemForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (item.type === '') {
-      return alert('Please set a type');
+    if (item.dayOfMonth === '') {
+      return alert('Please select a day of the month.');
     }
     dispatch({ type: 'UPDATE_ITEM', payload: item });
     props.cancel();
@@ -114,7 +114,7 @@ const UpdateItemForm = props => {
         />
       </PreviewContainer>
       <ButtonContainer>
-        <CancelButton type="button" onClick={handleCancel}>
+        <CancelButton style={cancelStyle} type="button" onClick={handleCancel}>
           Cancel
         </CancelButton>
         <AddButton type="submit">
@@ -205,3 +205,7 @@ const DangerMessage = styled.p`
   font-size: 1.2rem;
   margin-bottom: 1rem;
 `;
+
+const cancelStyle = {
+  padding: '1.5rem'
+};
