@@ -32,7 +32,7 @@ const UpdateItemForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (item.dayOfMonth === '') {
+    if (item.dayOfMonth === '' && item.recurrence === 'monthly') {
       return alert('Please select a day of the month.');
     }
     dispatch({ type: 'UPDATE_ITEM', payload: item });
