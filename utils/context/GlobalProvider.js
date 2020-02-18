@@ -32,7 +32,7 @@ let initialState = {
       recurrence: `monthly`,
       amount: `20`,
       dayOfMonth: `first`,
-      dayOfWeek: ``
+      dayOfWeek: `Monday`
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ let initialState = {
       recurrence: `monthly`,
       amount: `11`,
       dayOfMonth: 20,
-      dayOfWeek: ``
+      dayOfWeek: `Monday`
     }
   ]
 };

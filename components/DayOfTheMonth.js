@@ -69,7 +69,9 @@ const DayOfTheMonth = props => {
           name="dayOfMonth"
           placeholder={customDay === '' ? 15 : customDay}
           value={customDay}
-          disabled={!customField}
+          disabled={
+            !(props.dayOfMonth !== 'first' && props.dayOfMonth !== 'last')
+          }
           onChange={props.handleChange}
         />
         {/* <CustomLabel htmlFor="customDay">Enter a day of the month</CustomLabel> */}
