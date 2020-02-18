@@ -4,42 +4,51 @@ import { createContext, useReducer } from 'react';
 // require unique method for localStorage
 
 let initialState = {
-  name: 'Nacho Libre',
-  email: 'nacho@test.com',
+  name: 'Dewey Finn',
+  email: 'dewey@schoolofrock.com',
   items: [
     {
       id: 1,
       type: `income`,
-      title: `Nacho's Check`,
+      title: `Substitute Teacher Check`,
       recurrence: `bi-weekly`,
-      amount: `550`,
+      amount: `1000`,
       dayOfMonth: ``,
       dayOfWeek: `Friday`
     },
     {
       id: 2,
+      type: `income`,
+      title: `Gig Money`,
+      recurrence: `weekly`,
+      amount: `150`,
+      dayOfMonth: ``,
+      dayOfWeek: `Friday`
+    },
+    {
+      id: 3,
       type: `expense`,
-      title: `Gym Membership`,
+      title: `Guitar Strings`,
       recurrence: `monthly`,
       amount: `20`,
       dayOfMonth: `first`,
       dayOfWeek: ``
     },
     {
-      id: 3,
-      type: `expense`,
-      title: `Stretchy Pants`,
-      recurrence: `monthly`,
-      amount: `15`,
-      dayOfMonth: `first`,
-      dayOfWeek: ``
-    },
-    {
       id: 4,
       type: `expense`,
-      title: `Donation for the Orphans`,
+      title: `Gas for Van`,
+      recurrence: `weekly`,
+      amount: `40`,
+      dayOfMonth: ``,
+      dayOfWeek: `Monday`
+    },
+    {
+      id: 5,
+      type: `expense`,
+      title: `Spotify`,
       recurrence: `monthly`,
-      amount: `100`,
+      amount: `11`,
       dayOfMonth: 20,
       dayOfWeek: ``
     }
