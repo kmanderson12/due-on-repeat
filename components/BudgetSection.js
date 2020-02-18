@@ -1,6 +1,7 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { store } from '../utils/context/GlobalProvider';
 import styled from 'styled-components';
+import stopBodyScrolling from '../utils/stopBodyScrolling';
 import BudgetGroup from '../components/BudgetGroup';
 import { Plus } from '../components/icons';
 import Modal from '../components/Modal';
@@ -10,11 +11,13 @@ import AddButton from '../components/styles/AddButton';
 const BudgetSection = () => {
   const [toggle, setToggle] = useState(false);
   const toggleModal = () => {
+    stopBodyScrolling(!toggle);
     setToggle(!toggle);
   };
   const { state } = useContext(store);
   const income = state.items.filter(item => item.type === 'income');
   const expenses = state.items.filter(item => item.type === 'expense');
+
   return (
     <>
       {toggle ? (

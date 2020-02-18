@@ -10,7 +10,7 @@ let initialState = {
     {
       id: 1,
       type: `income`,
-      title: `Substitute Teacher Check`,
+      title: `Ned's Sub Check`,
       recurrence: `bi-weekly`,
       amount: `1000`,
       dayOfMonth: ``,
