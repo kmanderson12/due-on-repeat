@@ -1,52 +1,31 @@
-# Example app with styled-components
+## dueonrepeat
+---
+Track recurring income and expenses. Gain greater visibility into your budget.
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+**View Project: [dueonrepeat.now.sh](https://dueonrepeat.now.sh)**
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs#custom-app) component.
+### Tech Stack
+- React & Next.js
+- styled components
+- React Hooks for State Management
+- Apollo Client (Coming Soon)
+- GraphQL (Coming Soon)
+- Hasura (Coming Soon)
+- auth0 (Coming Soon)
+- Zeit Now
 
-## Deploy your own
+### Roadmap
+- Basic Budget UI (In-Progress: 90%)
+- Connect to Hasura for database and user management
+- Create Timeline View
+- Create Calendar View
 
-Deploy the example using [ZEIT Now](https://zeit.co/now):
+### Thoughts and Inspiration
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/zeit/next.js/tree/canary/examples/with-styled-components)
+#### Design
+The design of the UI is heavily inspired by the excellent work of Tailwind UI (Steve Schoger and Adam Wathan). Though I'm not actually using their CSS library, their color pallette and design tips have been extremely helpful. Because of their inspiration, I was able to draw something up in Figma rather quickly that (I believe) looks not-too-shabby.
 
-## How to use
+#### Tech Decisions
+Currently, my stack of choice is Next.js with a Hasura backend. I love what Zeit is doing with Next--SSR, API Routes, Dynamic Routing. And Hasura is such a great tool that makes getting a SQL database with GraphQL schema up and running quickly.
 
-### Using `create-next-app`
-
-Execute [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npm init next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-```
-
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-styled-components
-cd with-styled-components
-```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
-
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download)):
-
-```bash
-now
-```
-
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/zeit/next.js/tree/canary/examples/with-styled-components)
+For global state management, I decided to use React's context and reducers to give a Redux-like approach without the overhead of Redux. Since I'll be creating multiple views, I decided to separate the majority of the state into context to give easy acess to other components without the need for prop-drilling.
