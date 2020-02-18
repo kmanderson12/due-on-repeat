@@ -6,8 +6,10 @@ const formatRecurrence = (recurrence, dayOfWeek, dayOfMonth) => {
       return `Every month on the ${convertDay(dayOfMonth)}`;
     case 'bi-weekly':
       return `Every 2 weeks on ${dayOfWeek}s`;
-    default:
+    case 'weekly':
       return `Every week on ${dayOfWeek}`;
+    default:
+      return new Error(`An invalid recurrence was provided.`);
   }
 };
 

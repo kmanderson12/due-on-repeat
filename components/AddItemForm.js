@@ -40,7 +40,7 @@ const AddItemForm = props => {
     title: '',
     amount: '',
     recurrence: 'monthly',
-    dayOfWeek: '',
+    dayOfWeek: 'Monday',
     dayOfMonth: ''
   });
 
