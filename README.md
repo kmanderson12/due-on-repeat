@@ -7,7 +7,7 @@ Track recurring income and expenses. Gain greater visibility into your budget.
 ### Tech Stack
 - React & Next.js
 - styled components
-- React Hooks for State Management
+- React Context and Hooks for State Management
 - Apollo Client (Coming Soon)
 - GraphQL (Coming Soon)
 - Hasura (Coming Soon)
