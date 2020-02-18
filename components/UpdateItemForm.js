@@ -5,7 +5,7 @@ import DayOfTheMonth from '../components/DayOfTheMonth';
 import DayOfTheWeek from '../components/DayOfTheWeek';
 import ItemTypeButtonGroup from '../components/styles/ItemTypeButtonGroup';
 import AddButton from '../components/styles/AddButton';
-import { Check } from '../components/icons';
+import { Check, Trash } from '../components/icons';
 import RecurrenceGroup from '../components/RecurrenceGroup';
 import BudgetItemPreview from '../components/BudgetItemPreview';
 import {
@@ -122,9 +122,14 @@ const UpdateItemForm = props => {
           Update Item
         </AddButton>
       </ButtonContainer>
-      <button type="button" onClick={handleDelete}>
-        Delete Item
-      </button>
+      <DangerContainer>
+        <DangerTitle>Da-Da-Danger Zone</DangerTitle>
+        <DangerMessage>Deleting can't be undone.</DangerMessage>
+        <DangerButton type="button" onClick={handleDelete}>
+          <Trash />
+          Delete Item
+        </DangerButton>
+      </DangerContainer>
     </Form>
   );
 };
@@ -173,4 +178,30 @@ const PreviewContainer = styled.div`
 const PreviewTitle = styled.h4`
   text-align: center;
   font-weight: 400;
+`;
+
+const DangerContainer = styled.div`
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DangerButton = styled(AddButton)`
+  background: ${props => props.theme.colors.red};
+  color: white;
+`;
+
+const DangerTitle = styled.h4`
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+`;
+
+const DangerMessage = styled.p`
+  color: ${props => props.theme.colors.gray600};
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 `;
