@@ -7,28 +7,17 @@ import ItemTypeButtonGroup from '../components/styles/ItemTypeButtonGroup';
 import AddButton from '../components/styles/AddButton';
 import { Plus } from '../components/icons';
 import RecurrenceGroup from '../components/RecurrenceGroup';
+import BudgetItemPreview from '../components/BudgetItemPreview';
 import {
   Form,
   FormTitle,
   Label,
   TextInput,
   NumberInput,
-  CustomInput,
-  CustomLabel,
   CancelButton,
-  ButtonContainer,
-  RadioContainer,
-  RadioLabel,
-  RadioInput
+  ButtonContainer
 } from '../components/styles/FormStyles';
 
-//TODO: Change form items to flexbox instead of grid
-//TODO: Move Day of the Month to another file
-//TODO: Create Recurrence button group
-//TODO: Create Weekly section
-//TODO: Create Bi-Weekly section
-//TODO: Wire up state/context with new inputs
-//TODO: Fix mobile view (larger buttons, text)
 //TODO: Consider adding preview of new item within modal
 
 const AddItemForm = props => {
@@ -41,7 +30,7 @@ const AddItemForm = props => {
     amount: '',
     recurrence: 'monthly',
     dayOfWeek: 'Monday',
-    dayOfMonth: ''
+    dayOfMonth: '15'
   });
 
   const handleSubmit = e => {
@@ -63,7 +52,15 @@ const AddItemForm = props => {
       [name]: value
     });
   };
-  const { type, title, amount, recurrence, dayOfWeek, dayOfMonth } = newItem;
+  const {
+    id,
+    type,
+    title,
+    amount,
+    recurrence,
+    dayOfWeek,
+    dayOfMonth
+  } = newItem;
   return (
     <Form onSubmit={handleSubmit}>
       <FormTitle>Add New Budget Item</FormTitle>
@@ -105,6 +102,18 @@ const AddItemForm = props => {
           )}
         </FormItem>
       </FlexContainer>
+      <PreviewContainer>
+        <PreviewTitle>Preview</PreviewTitle>
+        <BudgetItemPreview
+          title={title === '' ? 'New Item' : title}
+          type={type}
+          amount={amount}
+          recurrence={recurrence}
+          id={id}
+          dayOfMonth={dayOfMonth}
+          dayOfWeek={dayOfWeek}
+        />
+      </PreviewContainer>
       <ButtonContainer>
         <CancelButton type="button" onClick={handleCancel}>
           Cancel
@@ -149,4 +158,17 @@ const FormItemRecurrence = styled(FormItem)`
   @media screen and (max-width: 580px) {
     min-height: auto;
   }
+`;
+
+const PreviewContainer = styled.div`
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-radius: 5px;
+  box-shadow: ${props => props.theme.shadows.bs1};
+`;
+
+const PreviewTitle = styled.h4`
+  text-align: center;
+  font-weight: 400;
 `;
