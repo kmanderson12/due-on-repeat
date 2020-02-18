@@ -48,6 +48,7 @@ const ModalCard = styled.div`
 
 const OverflowHidden = createGlobalStyle`
   body {
+    position: fixed;
     overflow: hidden;
   }
 `;
