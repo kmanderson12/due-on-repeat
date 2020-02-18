@@ -36,6 +36,8 @@ const BudgetItem = props => {
             title={props.title}
             recurrence={props.recurrence}
             amount={props.amount}
+            dayOfMonth={props.dayOfMonth}
+            dayOfWeek={props.dayOfWeek}
           />
         </Modal>
       ) : null}
@@ -126,6 +128,7 @@ const ItemAmount = styled.p`
     props.type === 'income'
       ? props.theme.colors.green200
       : props.theme.colors.red};
+  letter-spacing: 0.5px;
   @media screen and (max-width: 800px) {
     font-size: 1.8rem;
     width: auto;

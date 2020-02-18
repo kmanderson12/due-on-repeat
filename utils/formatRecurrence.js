@@ -1,5 +1,7 @@
 import convertDay from '../utils/convertDay';
 
+//TODO: Add better handling of dayOfWeek (if not selected)
+
 const formatRecurrence = (recurrence, dayOfWeek, dayOfMonth) => {
   switch (recurrence) {
     case 'monthly':

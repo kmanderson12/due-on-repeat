@@ -81,10 +81,10 @@ const AddItemForm = props => {
           <Label>Amount</Label>
           <NumberInput
             type="number"
-            min="0.01"
-            step="0.01"
+            min="1"
+            step="1"
             name="amount"
-            placeholder="$0.00"
+            placeholder="$100"
             onChange={handleChange}
             value={amount}
             required

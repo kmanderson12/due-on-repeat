@@ -51,6 +51,9 @@ const ButtonWrapper = styled.div`
   button:nth-child(3) {
     margin-left: 0.2rem;
   }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const RecurrenceButton = styled.button`
@@ -65,7 +68,7 @@ const RecurrenceButton = styled.button`
       ? props.theme.colors.gray400
       : props.theme.colors.gray300};
   opacity: ${props => (props.selected === props.value ? `1` : `0.6`)};
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;

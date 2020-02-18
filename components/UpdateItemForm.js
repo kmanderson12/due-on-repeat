@@ -1,6 +1,22 @@
 import { useState, useContext } from 'react';
 import { store } from '../utils/context/GlobalProvider';
 import styled from 'styled-components';
+import DayOfTheMonth from '../components/DayOfTheMonth';
+import DayOfTheWeek from '../components/DayOfTheWeek';
+import ItemTypeButtonGroup from '../components/styles/ItemTypeButtonGroup';
+import AddButton from '../components/styles/AddButton';
+import { Check } from '../components/icons';
+import RecurrenceGroup from '../components/RecurrenceGroup';
+import BudgetItemPreview from '../components/BudgetItemPreview';
+import {
+  Form,
+  FormTitle,
+  Label,
+  TextInput,
+  NumberInput,
+  CancelButton,
+  ButtonContainer
+} from '../components/styles/FormStyles';
 
 const UpdateItemForm = props => {
   const { dispatch } = useContext(store);
@@ -9,7 +25,9 @@ const UpdateItemForm = props => {
     type: props.type,
     title: props.title,
     amount: props.amount,
-    recurrence: props.recurrence
+    recurrence: props.recurrence,
+    dayOfMonth: props.dayOfMonth,
+    dayOfWeek: props.dayOfWeek
   });
 
   const handleSubmit = e => {
@@ -38,60 +56,73 @@ const UpdateItemForm = props => {
       [name]: value
     });
   };
-  const { type, title, amount, recurrence } = item;
+  const { id, type, title, amount, recurrence, dayOfMonth, dayOfWeek } = item;
   return (
     <Form onSubmit={handleSubmit}>
       <FormTitle>Edit Budget Item</FormTitle>
-      <label>Type</label>
-      <select
-        id="type"
-        name="type"
-        onChange={handleChange}
-        defaultValue={type}
-        required
-      >
-        <option disabled value="select">
-          Select An Option
-        </option>
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-      </select>
-
-      <label>Description</label>
-      <input
-        type="text"
-        name="title"
-        placeholder="Name of Item"
-        onChange={handleChange}
-        value={title}
-        required
-      />
-
-      <label>Amount</label>
-      <input
-        type="number"
-        min="0.01"
-        step="0.01"
-        name="amount"
-        placeholder="0.00"
-        onChange={handleChange}
-        value={amount}
-        required
-      />
-      <label>Recurrence</label>
-      <input
-        type="text"
-        name="recurrence"
-        placeholder="Every month on the 15th"
-        onChange={handleChange}
-        value={recurrence}
-        required
-      />
-      <button type="button" onClick={handleCancel}>
-        Cancel
-      </button>
-      <button type="submit">Save Changes</button>
-      <button type="button" className="delete" onClick={handleDelete}>
+      <ItemTypeButtonGroup type={type} onClick={handleChange} />
+      <FlexContainer>
+        <FormItem>
+          <Label>Description</Label>
+          <TextInput
+            type="text"
+            name="title"
+            placeholder="Name of Item"
+            onChange={handleChange}
+            value={title}
+            required
+          />
+        </FormItem>
+        <FormItem>
+          <Label>Amount</Label>
+          <NumberInput
+            type="number"
+            min="1"
+            step="1"
+            name="amount"
+            placeholder="$100"
+            onChange={handleChange}
+            value={amount}
+            required
+          />
+        </FormItem>
+        <FormItemRecurrence>
+          <Label>Recurrence</Label>
+          <RecurrenceGroup recurrence={recurrence} onClick={handleChange} />
+        </FormItemRecurrence>
+        <FormItem>
+          {recurrence === 'monthly' ? (
+            <DayOfTheMonth
+              handleChange={handleChange}
+              dayOfMonth={dayOfMonth}
+            />
+          ) : (
+            <DayOfTheWeek handleChange={handleChange} dayOfWeek={dayOfWeek} />
+          )}
+        </FormItem>
+      </FlexContainer>
+      <PreviewContainer>
+        <PreviewTitle>Preview</PreviewTitle>
+        <BudgetItemPreview
+          title={title === '' ? 'New Item' : title}
+          type={type}
+          amount={amount}
+          recurrence={recurrence}
+          id={id}
+          dayOfMonth={dayOfMonth}
+          dayOfWeek={dayOfWeek}
+        />
+      </PreviewContainer>
+      <ButtonContainer>
+        <CancelButton type="button" onClick={handleCancel}>
+          Cancel
+        </CancelButton>
+        <AddButton type="submit">
+          <Check />
+          Update Item
+        </AddButton>
+      </ButtonContainer>
+      <button type="button" onClick={handleDelete}>
         Delete Item
       </button>
     </Form>
@@ -100,22 +131,46 @@ const UpdateItemForm = props => {
 
 export default UpdateItemForm;
 
-const FormTitle = styled.h2`
-  text-align: center;
-  margin: 1rem 0 2rem 0;
+const FlexContainer = styled.div`
+  min-height: 210px;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  @media screen and (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
-const Form = styled.form`
-  max-width: 400px;
-  margin: 0 auto;
-  color: ${props => props.theme.colors.gray700};
-  label,
-  input {
-    display: block;
-    margin: 1rem 0;
+const FormItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem 0 0;
+  min-width: 250px;
+  @media screen and (max-width: 500px) {
+    min-width: 300px;
   }
-  .delete {
-    background: ${props => props.theme.colors.red};
-    color: white;
+  @media screen and (max-width: 400px) {
+    min-width: 250px;
   }
+`;
+
+const FormItemRecurrence = styled(FormItem)`
+  min-height: 125px;
+  @media screen and (max-width: 580px) {
+    min-height: auto;
+  }
+`;
+
+const PreviewContainer = styled.div`
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-radius: 5px;
+  box-shadow: ${props => props.theme.shadows.bs1};
+`;
+
+const PreviewTitle = styled.h4`
+  text-align: center;
+  font-weight: 400;
 `;
