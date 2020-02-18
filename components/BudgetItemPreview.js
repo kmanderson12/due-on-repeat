@@ -72,7 +72,7 @@ const ItemTitle = styled.h4`
 `;
 
 const ItemOccurrence = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 300;
   min-width: 50%;
   color: ${props => props.theme.colors.gray600};
@@ -81,7 +81,7 @@ const ItemOccurrence = styled.p`
   align-items: center;
   > svg {
     margin-right: 0.45rem;
-    max-height: 14px;
+    max-height: 12px;
   }
   @media screen and (max-width: 800px) {
     font-size: 1.4rem;

@@ -30,7 +30,7 @@ const AddItemForm = props => {
     amount: '',
     recurrence: 'monthly',
     dayOfWeek: 'Monday',
-    dayOfMonth: '15'
+    dayOfMonth: 'first'
   });
 
   const handleSubmit = e => {
@@ -96,7 +96,10 @@ const AddItemForm = props => {
         </FormItemRecurrence>
         <FormItem>
           {recurrence === 'monthly' ? (
-            <DayOfTheMonth handleChange={handleChange} />
+            <DayOfTheMonth
+              handleChange={handleChange}
+              dayOfMonth={dayOfMonth}
+            />
           ) : (
             <DayOfTheWeek handleChange={handleChange} dayOfWeek={dayOfWeek} />
           )}
