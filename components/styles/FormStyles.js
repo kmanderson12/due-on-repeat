@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Form = styled.form`
   width: 100%;
   max-width: 600px;
-  min-height: 70vh;
   color: ${props => props.theme.colors.gray700};
   display: flex;
   flex-direction: column;
@@ -121,10 +120,8 @@ export const CancelButton = styled.button`
 export const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: auto auto 1rem auto;
-  justify-self: flex-end;
   > * {
     margin: 0 0.5rem;
   }

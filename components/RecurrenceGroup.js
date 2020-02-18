@@ -38,7 +38,7 @@ export default RecurrenceGroup;
 
 const ButtonWrapper = styled.div`
   border-radius: 5px;
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
   background: ${props => props.theme.colors.gray300};
   display: flex;
@@ -54,6 +54,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const RecurrenceButton = styled.button`
+  width: 100%;
   border-radius: 4px;
   border: none;
   outline: none;

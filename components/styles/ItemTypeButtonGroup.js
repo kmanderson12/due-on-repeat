@@ -32,7 +32,7 @@ export default ItemTypeButtonGroup;
 
 const ButtonWrapper = styled.div`
   border-radius: 5px;
-  width: fit-content;
+  width: 300px;
   margin: 0 auto;
   background: ${props => props.theme.colors.gray300};
   display: flex;
@@ -45,9 +45,13 @@ const ButtonWrapper = styled.div`
   button:nth-child(2) {
     margin-left: 0.2rem;
   }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const ItemTypeButton = styled.button`
+  width: 100%;
   border-radius: 4px;
   border: none;
   outline: none;

@@ -93,10 +93,10 @@ const AddItemForm = props => {
             required
           />
         </FormItem>
-        <FormItem>
+        <FormItemRecurrence>
           <Label>Recurrence</Label>
           <RecurrenceGroup recurrence={recurrence} onClick={handleChange} />
-        </FormItem>
+        </FormItemRecurrence>
         <FormItem>
           {recurrence === 'monthly' ? (
             <DayOfTheMonth handleChange={handleChange} />
@@ -121,10 +121,11 @@ const AddItemForm = props => {
 export default AddItemForm;
 
 const FlexContainer = styled.div`
+  min-height: 210px;
   margin: 2rem 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   @media screen and (max-width: 800px) {
     justify-content: center;
   }
@@ -134,5 +135,18 @@ const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem 2rem 0 0;
-  min-width: 200px;
+  min-width: 250px;
+  @media screen and (max-width: 500px) {
+    min-width: 300px;
+  }
+  @media screen and (max-width: 400px) {
+    min-width: 250px;
+  }
+`;
+
+const FormItemRecurrence = styled(FormItem)`
+  min-height: 125px;
+  @media screen and (max-width: 580px) {
+    min-height: auto;
+  }
 `;
