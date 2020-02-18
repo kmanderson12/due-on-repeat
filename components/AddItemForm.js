@@ -122,7 +122,7 @@ export default AddItemForm;
 
 const FlexContainer = styled.div`
   min-height: 210px;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

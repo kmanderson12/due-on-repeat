@@ -38,7 +38,8 @@ const ModalCard = styled.div`
   flex-direction: column;
   align-items: center;
   @media screen and (max-width: 500px) {
-    height: 100%;
+    position: absolute;
+    top: 0;
     border-radius: 0px;
     overflow-y: scroll;
   }
