@@ -40,6 +40,7 @@ const ModalCard = styled.div`
   @media screen and (max-width: 500px) {
     position: absolute;
     top: 0;
+    min-height: 100vh;
     border-radius: 0px;
     overflow-y: scroll;
   }

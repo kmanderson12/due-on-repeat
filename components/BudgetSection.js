@@ -11,13 +11,14 @@ import AddButton from '../components/styles/AddButton';
 const BudgetSection = () => {
   const [toggle, setToggle] = useState(false);
   const toggleModal = () => {
-    stopBodyScrolling(!toggle);
     setToggle(!toggle);
   };
   const { state } = useContext(store);
   const income = state.items.filter(item => item.type === 'income');
   const expenses = state.items.filter(item => item.type === 'expense');
-
+  useEffect(() => {
+    stopBodyScrolling(toggle);
+  });
   return (
     <>
       {toggle ? (
