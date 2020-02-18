@@ -5,7 +5,7 @@ const convertDay = dayOfMonth => {
     case 'first':
       return '1st';
     case 'last':
-      return 'last day of the month';
+      return 'last day';
     default:
       return ordinal(parseInt(dayOfMonth));
   }
