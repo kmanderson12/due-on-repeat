@@ -12,6 +12,7 @@ Track recurring income and expenses. Gain greater visibility into your budget.
 - GraphQL (Coming Soon)
 - Hasura (Coming Soon)
 - auth0 (Coming Soon)
+- React Testing Library (Coming Soon)
 - Zeit Now
 
 ### Roadmap
