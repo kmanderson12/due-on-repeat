@@ -10,7 +10,7 @@ let initialState = {
     {
       id: 1,
       type: `income`,
-      title: `Check for Subbin'`,
+      title: `Substitute Teaching`,
       recurrence: `bi-weekly`,
       amount: `1000`,
       dayOfMonth: `first`,
