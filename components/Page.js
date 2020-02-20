@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
         font-size: 10px;
-        font-family: "Rubik";
+        font-family: "Rubik", Helvetica, Arial, Sans-Serif;
         @media screen and (max-width: 500px) {
           font-size: 12px;
         }

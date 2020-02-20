@@ -61,7 +61,7 @@ const ItemTypeButton = styled.button`
     props.selected === props.value
       ? props.theme.colors.gray400
       : props.theme.colors.gray300};
-  opacity: ${props => (props.selected === props.value ? `1` : `0.6`)};
+  opacity: ${props => (props.selected === props.value ? `1` : `0.5`)};
   padding: 0.5rem 0.75rem;
   display: flex;
   justify-content: center;
