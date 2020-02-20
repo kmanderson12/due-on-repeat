@@ -46,7 +46,7 @@ const CustomSelect = styled.div`
     border: 1px solid ${props => props.theme.colors.gray400};
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
     border-radius: 4px;
-    padding: 0.75rem;
+    padding: 1rem;
     font-family: 'Rubik';
     font-size: 1.2rem;
     color: ${props => props.theme.colors.gray700};

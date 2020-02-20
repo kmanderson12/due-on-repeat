@@ -15,7 +15,8 @@ const BudgetItemPreview = props => {
   const itemRecurrence = formatRecurrence(
     props.recurrence,
     props.dayOfWeek,
-    props.dayOfMonth
+    props.dayOfMonth,
+    props.customDay
   );
   return (
     <BudgetCard>
@@ -74,7 +75,7 @@ const ItemTitle = styled.h4`
 const ItemOccurrence = styled.p`
   font-size: 1.3rem;
   font-weight: 300;
-  min-width: 50%;
+  min-width: 55%;
   color: ${props => props.theme.colors.gray600};
   display: flex;
   justify-content: center;

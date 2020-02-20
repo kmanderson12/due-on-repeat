@@ -23,7 +23,8 @@ const BudgetItem = props => {
   const itemRecurrence = formatRecurrence(
     props.recurrence,
     props.dayOfWeek,
-    props.dayOfMonth
+    props.dayOfMonth,
+    props.customDay
   );
   return (
     <>
@@ -38,6 +39,7 @@ const BudgetItem = props => {
             amount={props.amount}
             dayOfMonth={props.dayOfMonth}
             dayOfWeek={props.dayOfWeek}
+            customDay={props.customDay}
           />
         </Modal>
       ) : null}

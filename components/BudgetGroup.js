@@ -16,6 +16,7 @@ const BudgetGroup = props => {
             key={i.id}
             dayOfMonth={i.dayOfMonth}
             dayOfWeek={i.dayOfWeek}
+            customDay={i.customDay}
           />
         ))
       ) : (

@@ -2,11 +2,15 @@ import convertDay from '../utils/convertDay';
 
 //TODO: Add better handling of dayOfWeek (if not selected)
 
-const formatRecurrence = (recurrence, dayOfWeek, dayOfMonth) => {
+const formatRecurrence = (recurrence, dayOfWeek, dayOfMonth, customDay) => {
   switch (recurrence) {
     case 'monthly':
       return `Every month on the ${
-        dayOfMonth !== '' ? convertDay(dayOfMonth) : '...'
+        dayOfMonth === 'custom'
+          ? customDay === ''
+            ? '...'
+            : convertDay(customDay)
+          : convertDay(dayOfMonth)
       }`;
     case 'bi-weekly':
       return `Every 2 weeks on ${dayOfWeek}s`;

@@ -30,12 +30,17 @@ const AddItemForm = props => {
     amount: '',
     recurrence: 'monthly',
     dayOfWeek: 'Monday',
-    dayOfMonth: 'first'
+    dayOfMonth: 'first',
+    customDay: 15
   });
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (newItem.dayOfMonth === '' && newItem.recurrence === 'monthly') {
+    if (
+      newItem.recurrence === 'monthly' &&
+      newItem.dayOfMonth === 'custom' &&
+      newItem.customDay === ''
+    ) {
       return alert('Please select a day of the month.');
     }
     dispatch({ type: 'ADD_ITEM', payload: newItem });
@@ -59,7 +64,8 @@ const AddItemForm = props => {
     amount,
     recurrence,
     dayOfWeek,
-    dayOfMonth
+    dayOfMonth,
+    customDay
   } = newItem;
   return (
     <Form onSubmit={handleSubmit}>
@@ -99,6 +105,7 @@ const AddItemForm = props => {
             <DayOfTheMonth
               handleChange={handleChange}
               dayOfMonth={dayOfMonth}
+              customDay={customDay}
             />
           ) : (
             <DayOfTheWeek handleChange={handleChange} dayOfWeek={dayOfWeek} />
@@ -115,6 +122,7 @@ const AddItemForm = props => {
           id={id}
           dayOfMonth={dayOfMonth}
           dayOfWeek={dayOfWeek}
+          customDay={customDay}
         />
       </PreviewContainer>
       <ButtonContainer>

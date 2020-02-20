@@ -27,12 +27,17 @@ const UpdateItemForm = props => {
     amount: props.amount,
     recurrence: props.recurrence,
     dayOfMonth: props.dayOfMonth,
-    dayOfWeek: props.dayOfWeek
+    dayOfWeek: props.dayOfWeek,
+    customDay: props.customDay
   });
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (item.dayOfMonth === '' && item.recurrence === 'monthly') {
+    if (
+      item.recurrence === 'monthly' &&
+      item.dayOfMonth === 'custom' &&
+      item.customDay === ''
+    ) {
       return alert('Please select a day of the month.');
     }
     dispatch({ type: 'UPDATE_ITEM', payload: item });
@@ -56,7 +61,16 @@ const UpdateItemForm = props => {
       [name]: value
     });
   };
-  const { id, type, title, amount, recurrence, dayOfMonth, dayOfWeek } = item;
+  const {
+    id,
+    type,
+    title,
+    amount,
+    recurrence,
+    dayOfMonth,
+    dayOfWeek,
+    customDay
+  } = item;
   return (
     <Form onSubmit={handleSubmit}>
       <FormTitle>Edit Budget Item</FormTitle>
@@ -95,6 +109,7 @@ const UpdateItemForm = props => {
             <DayOfTheMonth
               handleChange={handleChange}
               dayOfMonth={dayOfMonth}
+              customDay={customDay}
             />
           ) : (
             <DayOfTheWeek handleChange={handleChange} dayOfWeek={dayOfWeek} />
@@ -111,6 +126,7 @@ const UpdateItemForm = props => {
           id={id}
           dayOfMonth={dayOfMonth}
           dayOfWeek={dayOfWeek}
+          customDay={customDay}
         />
       </PreviewContainer>
       <ButtonContainer>

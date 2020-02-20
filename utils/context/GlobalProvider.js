@@ -10,11 +10,12 @@ let initialState = {
     {
       id: 1,
       type: `income`,
-      title: `Ned's Sub Check`,
+      title: `Check for Subbin'`,
       recurrence: `bi-weekly`,
       amount: `1000`,
-      dayOfMonth: ``,
-      dayOfWeek: `Friday`
+      dayOfMonth: `first`,
+      dayOfWeek: `Friday`,
+      customDay: 15
     },
     {
       id: 2,
@@ -22,8 +23,9 @@ let initialState = {
       title: `Gig Money`,
       recurrence: `weekly`,
       amount: `150`,
-      dayOfMonth: ``,
-      dayOfWeek: `Friday`
+      dayOfMonth: `first`,
+      dayOfWeek: `Friday`,
+      customDay: 15
     },
     {
       id: 3,
@@ -32,7 +34,8 @@ let initialState = {
       recurrence: `monthly`,
       amount: `20`,
       dayOfMonth: `first`,
-      dayOfWeek: `Monday`
+      dayOfWeek: `Monday`,
+      customDay: 15
     },
     {
       id: 4,
@@ -40,8 +43,9 @@ let initialState = {
       title: `Gas for Van`,
       recurrence: `weekly`,
       amount: `40`,
-      dayOfMonth: ``,
-      dayOfWeek: `Monday`
+      dayOfMonth: `first`,
+      dayOfWeek: `Monday`,
+      customDay: 15
     },
     {
       id: 5,
@@ -50,7 +54,8 @@ let initialState = {
       recurrence: `monthly`,
       amount: `11`,
       dayOfMonth: 20,
-      dayOfWeek: `Monday`
+      dayOfWeek: `Monday`,
+      customDay: 15
     }
   ]
 };
