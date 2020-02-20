@@ -53,9 +53,9 @@ let initialState = {
       title: `Spotify`,
       recurrence: `monthly`,
       amount: `11`,
-      dayOfMonth: 20,
+      dayOfMonth: `custom`,
       dayOfWeek: `Monday`,
-      customDay: 15
+      customDay: 20
     }
   ]
 };
