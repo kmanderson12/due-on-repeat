@@ -44,6 +44,10 @@ const ModalCard = styled.div`
     border-radius: 0px;
     overflow-y: scroll;
   }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    position: absolute;
+    top: 0;
+  }
 `;
 
 const OverflowHidden = createGlobalStyle`
