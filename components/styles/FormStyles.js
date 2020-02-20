@@ -56,7 +56,7 @@ export const CustomInput = styled.input`
   padding: 0.5rem;
   color: ${props => props.theme.colors.gray700};
   font-size: 1.2rem;
-  font-family: 'Rubik';
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
   ::placeholder {
     color: ${props => props.theme.colors.gray500};
     font-size: 1.2rem;
@@ -77,7 +77,7 @@ export const TextInput = styled.input`
   padding: 1rem;
   color: ${props => props.theme.colors.gray700};
   font-size: 1.2rem;
-  font-family: 'Rubik';
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
   ::placeholder {
     color: ${props => props.theme.colors.gray500};
     font-size: 1.2rem;
@@ -92,7 +92,7 @@ export const NumberInput = styled.input`
   padding: 1rem;
   color: ${props => props.theme.colors.gray700};
   font-size: 1.2rem;
-  font-family: 'Rubik';
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
   ::placeholder {
     color: ${props => props.theme.colors.gray500};
     font-size: 1.2rem;
@@ -104,7 +104,7 @@ export const CancelButton = styled.button`
   border-radius: 5px;
   background: none;
   color: ${props => props.theme.colors.gray600};
-  font-family: 'Rubik';
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
   font-weight: 400;
   padding: 1rem;
   font-size: 1.4rem;

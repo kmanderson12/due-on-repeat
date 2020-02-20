@@ -5,7 +5,7 @@ const AddButton = styled.button`
   border-radius: 5px;
   background: ${props => props.theme.colors.gray700};
   color: white;
-  font-family: 'Rubik';
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
   font-weight: 400;
   padding: 1rem;
   font-size: 1.4rem;

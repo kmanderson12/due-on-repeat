@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         font-size: 1.5rem;
-        font-family: 'Rubik';
+        font-family: 'Rubik', Helvetica, Arial, sans-serif;
         width: 100%;
         min-height: 100vh;
         color: ${props => props.theme.colors.gray800};
