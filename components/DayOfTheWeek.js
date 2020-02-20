@@ -38,7 +38,7 @@ export default DayOfTheWeek;
 const CustomSelect = styled.div`
   display: inline-block;
   position: relative;
-  width: 107px;
+  width: 110px;
   select {
     display: block;
     appearance: none;
@@ -47,12 +47,15 @@ const CustomSelect = styled.div`
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
     border-radius: 4px;
     padding: 1rem;
-    font-family: 'Rubik';
+    font-family: 'Rubik', Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     color: ${props => props.theme.colors.gray700};
     :hover {
       border-color: ${props => props.theme.colors.gray500};
     }
+  }
+  @media screen and (min-width: 376px) and (max-width: 500px) {
+    width: 125px;
   }
 `;
 
