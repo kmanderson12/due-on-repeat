@@ -1,17 +1,34 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const bgVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const modalVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.15 } }
+};
 
 const Modal = props => {
   return (
-    <ModalBackground>
+    <>
+      <motion.div initial="hidden" animate="visible" exit="hidden">
+        <ModalBackground key="bg" variants={bgVariants}>
+          <ModalCard key="modal" variants={modalVariants}>
+            {props.children}
+          </ModalCard>
+        </ModalBackground>
+      </motion.div>
       <OverflowHidden />
-      <ModalCard>{props.children}</ModalCard>
-    </ModalBackground>
+    </>
   );
 };
 
 export default Modal;
 
-const ModalBackground = styled.div`
+const ModalBackground = styled(motion.div)`
   position: fixed;
   overflow: auto;
   overflow-y: scroll;
@@ -25,7 +42,7 @@ const ModalBackground = styled.div`
   align-items: center;
   z-index: 5;
 `;
-const ModalCard = styled.div`
+const ModalCard = styled(motion.div)`
   background: white;
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -43,7 +60,6 @@ const ModalCard = styled.div`
     top: 0;
     min-height: 100vh;
     border-radius: 0px;
-    overflow-y: scroll;
   }
   @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
     position: absolute;
@@ -54,6 +70,5 @@ const ModalCard = styled.div`
 const OverflowHidden = createGlobalStyle`
   body {
     position: fixed;
-    overflow: hidden;
   }
 `;

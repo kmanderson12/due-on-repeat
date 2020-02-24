@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 import { Repeat } from '../components/icons';
 import Modal from '../components/Modal';
 import UpdateItemForm from '../components/UpdateItemForm';
@@ -28,21 +29,23 @@ const BudgetItem = props => {
   );
   return (
     <>
-      {toggle ? (
-        <Modal>
-          <UpdateItemForm
-            cancel={toggleModal}
-            id={props.id}
-            type={props.type}
-            title={props.title}
-            recurrence={props.recurrence}
-            amount={props.amount}
-            dayOfMonth={props.dayOfMonth}
-            dayOfWeek={props.dayOfWeek}
-            customDay={props.customDay}
-          />
-        </Modal>
-      ) : null}
+      <AnimatePresence>
+        {toggle && (
+          <Modal toggle={toggle}>
+            <UpdateItemForm
+              cancel={toggleModal}
+              id={props.id}
+              type={props.type}
+              title={props.title}
+              recurrence={props.recurrence}
+              amount={props.amount}
+              dayOfMonth={props.dayOfMonth}
+              dayOfWeek={props.dayOfWeek}
+              customDay={props.customDay}
+            />
+          </Modal>
+        )}
+      </AnimatePresence>
       <BudgetCard onClick={toggleModal}>
         <FlexWrapper>
           <ItemTitle>{props.title}</ItemTitle>

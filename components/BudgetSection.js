@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { store } from '../utils/context/GlobalProvider';
 import styled from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 import stopBodyScrolling from '../utils/stopBodyScrolling';
 import BudgetGroup from '../components/BudgetGroup';
 import { Plus } from '../components/icons';
@@ -21,11 +22,14 @@ const BudgetSection = () => {
   });
   return (
     <>
-      {toggle ? (
-        <Modal>
-          <AddItemForm cancel={toggleModal} />
-        </Modal>
-      ) : null}
+      <AnimatePresence>
+        {toggle && (
+          <Modal toggle={toggle}>
+            <AddItemForm cancel={toggleModal} />
+          </Modal>
+        )}
+      </AnimatePresence>
+
       <BudgetContainer>
         <BudgetHeader>
           <BudgetTitle>{state.name}'s Budget</BudgetTitle>
