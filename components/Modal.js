@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const bgVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1 }
 };
 
 const modalVariants = {
-  hidden: { opacity: 0, y: 100 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.15 } }
+  hidden: { opacity: 0, y: 100, transition: { duration: 0.2 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.1 } }
 };
 
 const Modal = props => {
@@ -36,7 +36,7 @@ const ModalBackground = styled(motion.div)`
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: ${props => props.theme.colors.gray700};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,10 +60,6 @@ const ModalCard = styled(motion.div)`
     top: 0;
     min-height: 100vh;
     border-radius: 0px;
-  }
-  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
-    position: absolute;
-    top: 0;
   }
 `;
 
