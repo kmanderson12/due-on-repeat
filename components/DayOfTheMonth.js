@@ -46,9 +46,11 @@ const DayOfTheMonth = props => {
         <RadioLabel htmlFor="custom">Custom:</RadioLabel>
         <CustomDayInput
           type="number"
+          inputmode="numeric"
           min="1"
           max="31"
           name="customDay"
+          id="customDayInput"
           placeholder=""
           dayOfMonth={props.dayOfMonth}
           value={props.customDay}
