@@ -8,7 +8,7 @@ const bgVariants = {
 
 const modalVariants = {
   hidden: { opacity: 0, y: 100, transition: { duration: 0.2 } },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.1 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2 } }
 };
 
 const Modal = props => {
@@ -65,6 +65,7 @@ const ModalCard = styled(motion.div)`
 
 const OverflowHidden = createGlobalStyle`
   body {
-    position: fixed;
+    height: 100vh;
+    overflow-y: hidden;
   }
 `;

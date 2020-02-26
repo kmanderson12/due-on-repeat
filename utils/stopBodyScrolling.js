@@ -4,8 +4,10 @@ https://benfrain.com/preventing-body-scroll-for-modals-in-ios/ */
 function stopBodyScrolling(bool) {
   if (bool === true) {
     document.body.addEventListener('touchmove', freezeVp, false);
+    document.body.style.top = `-${window.scrollY}px`;
   } else {
     document.body.removeEventListener('touchmove', freezeVp, false);
+    document.body.style.top = '';
   }
 }
 
