@@ -22,10 +22,10 @@ const BudgetItemPreview = props => {
     <BudgetCard>
       <FlexWrapper>
         <ItemTitle>{props.title}</ItemTitle>
-        <ItemOccurrence>
+        <ItemRecurrence>
           <Repeat />
           {itemRecurrence}
-        </ItemOccurrence>
+        </ItemRecurrence>
       </FlexWrapper>
       <ItemAmount type={props.type}>{amount}</ItemAmount>
     </BudgetCard>
@@ -72,7 +72,7 @@ const ItemTitle = styled.h4`
   }
 `;
 
-const ItemOccurrence = styled.p`
+const ItemRecurrence = styled.p`
   font-size: 1.3rem;
   font-weight: 300;
   min-width: 55%;

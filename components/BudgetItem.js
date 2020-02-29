@@ -49,10 +49,10 @@ const BudgetItem = props => {
       <BudgetCard onClick={toggleModal}>
         <FlexWrapper>
           <ItemTitle>{props.title}</ItemTitle>
-          <ItemOccurrence>
+          <ItemRecurrence>
             <Repeat />
             {itemRecurrence}
-          </ItemOccurrence>
+          </ItemRecurrence>
         </FlexWrapper>
         <ItemAmount type={props.type}>{amount}</ItemAmount>
       </BudgetCard>
@@ -97,15 +97,16 @@ const FlexWrapper = styled.div`
 const ItemTitle = styled.h4`
   font-weight: 400;
   color: ${props => props.theme.colors.gray700};
-  min-width: 50%;
+  min-width: 49%;
   @media screen and (max-width: 800px) {
     margin-bottom: 0.1rem;
   }
 `;
 
-const ItemOccurrence = styled.p`
+const ItemRecurrence = styled.p`
   font-weight: 300;
-  min-width: 50%;
+  font-size: 1.6rem;
+  min-width: 51%;
   color: ${props => props.theme.colors.gray600};
   display: flex;
   justify-content: center;
