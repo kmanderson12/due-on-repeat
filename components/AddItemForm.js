@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { store } from '../utils/context/GlobalProvider';
+import { store, ADD_ITEM } from '../utils/context/GlobalProvider';
 import styled from 'styled-components';
 import DayOfTheMonth from '../components/DayOfTheMonth';
 import DayOfTheWeek from '../components/DayOfTheWeek';
@@ -43,7 +43,7 @@ const AddItemForm = props => {
     ) {
       return alert('Please select a day of the month.');
     }
-    dispatch({ type: 'ADD_ITEM', payload: newItem });
+    dispatch({ type: ADD_ITEM, payload: newItem });
     props.cancel();
   };
   const handleCancel = e => {

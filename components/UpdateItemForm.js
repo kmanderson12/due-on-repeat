@@ -1,5 +1,9 @@
 import { useState, useContext } from 'react';
-import { store } from '../utils/context/GlobalProvider';
+import {
+  store,
+  UPDATE_ITEM,
+  DELETE_ITEM
+} from '../utils/context/GlobalProvider';
 import styled from 'styled-components';
 import DayOfTheMonth from '../components/DayOfTheMonth';
 import DayOfTheWeek from '../components/DayOfTheWeek';
@@ -40,7 +44,7 @@ const UpdateItemForm = props => {
     ) {
       return alert('Please select a day of the month.');
     }
-    dispatch({ type: 'UPDATE_ITEM', payload: item });
+    dispatch({ type: UPDATE_ITEM, payload: item });
     props.cancel();
   };
   const handleDelete = e => {
@@ -48,7 +52,7 @@ const UpdateItemForm = props => {
     const answer = window.confirm(
       'You sure about that? \nPress OK to delete. Cancel to go back.'
     );
-    answer ? dispatch({ type: 'DELETE_ITEM', payload: item }) : null;
+    answer && dispatch({ type: DELETE_ITEM, payload: item });
   };
   const handleCancel = e => {
     e.preventDefault();
