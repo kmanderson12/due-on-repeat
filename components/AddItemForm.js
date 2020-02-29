@@ -98,7 +98,10 @@ const AddItemForm = props => {
         </FormItem>
         <FormItemRecurrence>
           <Label>Recurrence</Label>
-          <RecurrenceGroup recurrence={recurrence} onClick={handleChange} />
+          <RecurrenceGroup
+            recurrence={recurrence}
+            handleChange={handleChange}
+          />
         </FormItemRecurrence>
         <FormItem>
           {recurrence === 'monthly' ? (

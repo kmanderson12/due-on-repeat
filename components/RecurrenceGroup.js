@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+// TODO: Add Semi-Monthly option (i.e. 15th and last day of month)
+
 const RecurrenceGroup = props => {
   return (
     <ButtonWrapper>
@@ -8,7 +10,7 @@ const RecurrenceGroup = props => {
         type="button"
         value="weekly"
         selected={props.recurrence}
-        onClick={props.onClick}
+        onClick={props.handleChange}
       >
         Weekly
       </RecurrenceButton>
@@ -17,7 +19,7 @@ const RecurrenceGroup = props => {
         type="button"
         value="bi-weekly"
         selected={props.recurrence}
-        onClick={props.onClick}
+        onClick={props.handleChange}
       >
         Bi-Weekly
       </RecurrenceButton>
@@ -26,7 +28,7 @@ const RecurrenceGroup = props => {
         type="button"
         value="monthly"
         selected={props.recurrence}
-        onClick={props.onClick}
+        onClick={props.handleChange}
       >
         Monthly
       </RecurrenceButton>
