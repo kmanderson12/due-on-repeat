@@ -3,7 +3,7 @@ import {
   store,
   UPDATE_ITEM,
   DELETE_ITEM
-} from '../utils/context/GlobalProvider';
+} from '../components/context/GlobalProvider';
 import styled from 'styled-components';
 import DayOfTheMonth from '../components/DayOfTheMonth';
 import DayOfTheWeek from '../components/DayOfTheWeek';

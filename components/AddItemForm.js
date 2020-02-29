@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { store, ADD_ITEM } from '../utils/context/GlobalProvider';
+import { store, ADD_ITEM } from '../components/context/GlobalProvider';
 import styled from 'styled-components';
 import DayOfTheMonth from '../components/DayOfTheMonth';
 import DayOfTheWeek from '../components/DayOfTheWeek';

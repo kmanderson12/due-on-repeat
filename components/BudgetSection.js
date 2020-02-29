@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { store } from '../utils/context/GlobalProvider';
+import { store } from '../components/context/GlobalProvider';
 import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 import stopBodyScrolling from '../utils/stopBodyScrolling';
