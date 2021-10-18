@@ -13,7 +13,7 @@ Track recurring income and expenses. Gain greater visibility into your budget.
 - Hasura (Coming Soon)
 - auth0 (Coming Soon)
 - React Testing Library (Coming Soon)
-- Zeit Now
+- Vercel
 
 ### Roadmap
 - Basic Budget UI (In-Progress: 90%)
